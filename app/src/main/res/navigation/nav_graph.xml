@@ -3,26 +3,39 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/FirstFragment">
+    app:startDestination="@id/SplashScreenFragment">
 
     <fragment
-        android:id="@+id/FirstFragment"
-        android:name="com.me.fuccelerometer.FirstFragment"
-        android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first">
+        android:id="@+id/SplashScreenFragment"
+        android:name="com.me.fuccelerometer.SplashScreenFragment"
+        android:label="@string/splashscreen_fragment_label"
+        tools:layout="@layout/fragment_splashscreen">
 
         <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
+            android:id="@+id/action_SplashScreenFragment_to_AccelerometerFragment"
+            app:destination="@id/AccelerometerFragment" />
+        <action
+            android:id="@+id/action_SplashScreenFragment_to_GyroscopeFragment"
+            app:destination="@id/GyroscopeFragment" />
     </fragment>
     <fragment
-        android:id="@+id/SecondFragment"
-        android:name="com.me.fuccelerometer.SecondFragment"
-        android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second">
+        android:id="@+id/AccelerometerFragment"
+        android:name="com.me.fuccelerometer.AccelerometerFragment"
+        android:label="@string/accelerometer_fragment_label"
+        tools:layout="@layout/fragment_accelerometer">
 
         <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
+            android:id="@+id/action_AccelerometerFragment_to_GyroscopeFragment"
+            app:destination="@id/GyroscopeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/GyroscopeFragment"
+        android:name="com.me.fuccelerometer.GyroscopeFragment"
+        android:label="@string/gyroscope_fragment_label"
+        tools:layout="@layout/fragment_gyroscope">
+
+        <action
+            android:id="@+id/action_GyroscopeFragment_to_AccelerometerFragment"
+            app:destination="@id/AccelerometerFragment" />
     </fragment>
 </navigation>
