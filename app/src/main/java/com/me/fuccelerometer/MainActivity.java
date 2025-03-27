@@ -6,45 +6,32 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
-import com.google.android.material.snackbar.Snackbar;
 import androidx.appcompat.app.AppCompatActivity;
 
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
+import androidx.lifecycle.ViewModelProvider;
 import com.me.fuccelerometer.databinding.ActivityMainBinding;
+
 import android.view.Menu;
 import android.view.MenuItem;
 
 public class MainActivity extends AppCompatActivity {
+    ActivityMainBinding binding;
+    AccelerometerViewModel accelViewModel;
+    GyroscopeViewModel gyroViewModel;
+
     private SensorManager sensorManager;
     private Sensor accel;
     private Sensor gyro;
-
-    public Coordinates accelCoordinatesCurrent;
-    public Coordinates gyroCoordinatesCurrent;
-    private AppBarConfiguration appBarConfiguration;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        ActivityMainBinding binding;
-
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        /*setSupportActionBar(binding.toolbar);
-
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
-        appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
-        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
-
-        binding.toolbar.setOnClickListener(view -> Snackbar.make(view, "Gyro", Snackbar.LENGTH_LONG)
-                .setAnchorView(R.id.toolbar)
-                .setAction("Action", null).show());*/
-
+        accelViewModel = new ViewModelProvider(this).get(AccelerometerViewModel.class);
+        gyroViewModel = new ViewModelProvider(this).get(GyroscopeViewModel.class);
 
     }
 
@@ -57,10 +44,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-
-        // Initialise iterative gyroscope and accelerometer objects
-        gyroCoordinatesCurrent = new Coordinates(0, 0, 0);
-        accelCoordinatesCurrent = new Coordinates(0, 0, 0);
 
         sensorManager = (SensorManager)getSystemService(Context.SENSOR_SERVICE);
         accel = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
@@ -75,17 +58,11 @@ public class MainActivity extends AppCompatActivity {
         public void onSensorChanged(SensorEvent event) {
             switch (event.sensor.getType()) {
                 case Sensor.TYPE_GYROSCOPE: {
-                    gyroCoordinatesCurrent.SetAll(
-                            event.values[0],
-                            event.values[1],
-                            event.values[2]);
+                    gyroViewModel.SetAll(event.values[0], event.values[1], event.values[2]);
                     break;
                 }
                 case Sensor.TYPE_ACCELEROMETER: {
-                    accelCoordinatesCurrent.SetAll(
-                            filterGravity(event.values[0], accelCoordinatesCurrent.X()),
-                            filterGravity(event.values[1], accelCoordinatesCurrent.Y()),
-                            filterGravity(event.values[2], accelCoordinatesCurrent.Z()));
+                    accelViewModel.FilterGravity(event.values[0], event.values[1],event.values[2]);
                     break;
                 }
                 default:
@@ -99,10 +76,7 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
-    private double filterGravity(double newValue, double prevValue) {
-        final double ALPHA = 0.5;
-        return prevValue * ALPHA + (1 - ALPHA) * newValue;
-    }
+
 
 
     @Override
@@ -127,12 +101,6 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    public boolean onSupportNavigateUp() {
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
-        return NavigationUI.navigateUp(navController, appBarConfiguration)
-                || super.onSupportNavigateUp();
-    }
 
     @Override
     protected void onPause() {

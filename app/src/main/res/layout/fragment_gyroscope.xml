@@ -1,13 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".GyroscopeFragment">
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Hello" />
+        android:id="@+id/textView_Gyro_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="128dp"
+        android:layout_marginTop="84dp"
+        android:text="@string/textView_Gyro_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/textView_GyroX_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="84dp"
+        android:text="@string/textView_GyroX_label"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_Gyro_title" />
+
+    <TextView
+        android:id="@+id/textView_GyroX_value"
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+        android:layout_marginStart="148dp"
+        android:layout_marginTop="84dp"
+        android:text="@string/placeholder"
+        app:layout_constraintStart_toEndOf="@+id/textView_GyroX_label"
+        app:layout_constraintTop_toBottomOf="@+id/textView_Gyro_title" />
+
+    <TextView
+        android:id="@+id/textView_GyroY_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="44dp"
+        android:text="@string/textView_GyroY_label"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_GyroX_label" />
+
+    <TextView
+        android:id="@+id/textView_GyroY_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="148dp"
+        android:layout_marginTop="44dp"
+        android:text="@string/placeholder"
+        app:layout_constraintStart_toEndOf="@+id/textView_GyroY_label"
+        app:layout_constraintTop_toBottomOf="@+id/textView_GyroX_value" />
+
+    <TextView
+        android:id="@+id/textView_GyroZ_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="60dp"
+        android:text="@string/textView_GyroZ_label"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_GyroY_label" />
+
+    <TextView
+        android:id="@+id/textView_GyroZ_value"
+        android:layout_width="76dp"
+        android:layout_height="16dp"
+        android:layout_marginStart="148dp"
+        android:layout_marginTop="60dp"
+        android:text="@string/placeholder"
+        app:layout_constraintStart_toEndOf="@+id/textView_GyroZ_label"
+        app:layout_constraintTop_toBottomOf="@+id/textView_GyroY_value"
+        tools:ignore="TextSizeCheck" />
+
+    <Button
+        android:id="@+id/button_Gyro_to_Accel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="88dp"
+        android:text="@string/nav_to_accelerometer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_GyroZ_label" />
+</androidx.constraintlayout.widget.ConstraintLayout>

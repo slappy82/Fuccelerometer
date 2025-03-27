@@ -8,4 +8,22 @@
     <string name="nav_to_gyroscope">Gyroscope</string>
     <string name="nav_to_accelerometer">Accelerometer</string>
     <string name="placeholder">Placeholder</string>
+
+    <!-- Landingscreen Fragment Layout -->
+
+
+    <!-- Accelerometer Fragment Layout -->
+    <string name="textView_Accel_title">Accelerometer Readings</string>
+    <string name="textView_AccelX_label">X axis:</string>
+    <string name="textView_AccelY_label">Y axis:</string>
+    <string name="textView_AccelZ_label">Z axis:</string>
+
+
+    <!-- Gyroscope Fragment Layout -->
+    <string name="textView_Gyro_title">Gyroscope Readings</string>
+    <string name="textView_GyroX_label">X axis:</string>
+    <string name="textView_GyroY_label">Y axis:</string>
+    <string name="textView_GyroZ_label">Z axis:</string>
+
+
 </resources>

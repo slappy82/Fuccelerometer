@@ -12,25 +12,29 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.me.fuccelerometer.databinding.FragmentAccelerometerBinding;
+
 public class AccelerometerFragment extends Fragment {
 
-    private AccelerometerViewModel mViewModel;
-
-    public static AccelerometerFragment newInstance() {
-        return new AccelerometerFragment();
-    }
+    private FragmentAccelerometerBinding binding;
+    private AccelerometerViewModel accelViewModel;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_accelerometer, container, false);
+        binding = FragmentAccelerometerBinding.inflate(inflater, container, false);
+        accelViewModel = new ViewModelProvider(this).get(AccelerometerViewModel.class);
+        return binding.getRoot();
     }
 
     @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        mViewModel = new ViewModelProvider(this).get(AccelerometerViewModel.class);
-        // TODO: Use the ViewModel
+    public void onResume() {
+        super.onResume();
+
+        accelViewModel.accelX.observe(this, newValue -> binding.textViewAccelXValue.setText(newValue));
+        accelViewModel.accelY.observe(this, newValue -> binding.textViewAccelYValue.setText(newValue));
+        accelViewModel.accelZ.observe(this, newValue -> binding.textViewAccelZValue.setText(newValue));
     }
+
 
 }

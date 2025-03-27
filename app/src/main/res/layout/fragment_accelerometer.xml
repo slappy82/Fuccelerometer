@@ -1,14 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout_accel"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".AccelerometerFragment">
+
+    <TextView
+        android:id="@+id/textView_Accel_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="128dp"
+        android:layout_marginTop="84dp"
+        android:text="@string/textView_Accel_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView_AccelX_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="84dp"
+        android:text="@string/textView_AccelX_label"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView_Accel_title" />
+
+    <TextView
+        android:id="@+id/textView_AccelX_value"
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+        android:layout_marginStart="148dp"
+        android:layout_marginTop="84dp"
+        android:text="@string/placeholder"
+        app:layout_constraintStart_toEndOf="@+id/textView_AccelX_label"
+        app:layout_constraintTop_toBottomOf="@+id/textView_Accel_title" />
+
+    <TextView
+        android:id="@+id/textView_AccelY_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="44dp"
+        android:text="@string/textView_AccelY_label"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_AccelX_label" />
+
+    <TextView
+        android:id="@+id/textView_AccelY_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="148dp"
+        android:layout_marginTop="44dp"
+        android:text="@string/placeholder"
+        app:layout_constraintStart_toEndOf="@+id/textView_AccelY_label"
+        app:layout_constraintTop_toBottomOf="@+id/textView_AccelX_value" />
+
+    <TextView
+        android:id="@+id/textView_AccelZ_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="60dp"
+        android:text="@string/textView_AccelZ_label"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_AccelY_label" />
+
+    <TextView
+        android:id="@+id/textView_AccelZ_value"
+        android:layout_width="76dp"
+        android:layout_height="16dp"
+        android:layout_marginStart="148dp"
+        android:layout_marginTop="60dp"
+        android:text="@string/placeholder"
+        app:layout_constraintStart_toEndOf="@+id/textView_AccelZ_label"
+        app:layout_constraintTop_toBottomOf="@+id/textView_AccelY_value"
+        tools:ignore="TextSizeCheck" />
 
     <Button
         android:id="@+id/button_accel_to_gyro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/nav_to_gyroscope" />
-
-</FrameLayout>
+        android:layout_marginTop="88dp"
+        android:text="@string/nav_to_gyroscope"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_AccelZ_label" />
+</androidx.constraintlayout.widget.ConstraintLayout>
