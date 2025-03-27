@@ -7,6 +7,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.fragment.NavHostFragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,6 +26,15 @@ public class AccelerometerFragment extends Fragment {
         binding = FragmentAccelerometerBinding.inflate(inflater, container, false);
         accelViewModel = new ViewModelProvider(this).get(AccelerometerViewModel.class);
         return binding.getRoot();
+    }
+
+    public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        binding.buttonAccelToGyro.setOnClickListener(v ->
+                NavHostFragment.findNavController(AccelerometerFragment.this)
+                        .navigate(R.id.action_AccelerometerFragment_to_GyroscopeFragment)
+        );
     }
 
     @Override

@@ -34,7 +34,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="148dp"
         android:layout_marginTop="84dp"
-        android:text="@string/placeholder"
         app:layout_constraintStart_toEndOf="@+id/textView_AccelX_label"
         app:layout_constraintTop_toBottomOf="@+id/textView_Accel_title" />
 
@@ -54,7 +53,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="148dp"
         android:layout_marginTop="44dp"
-        android:text="@string/placeholder"
         app:layout_constraintStart_toEndOf="@+id/textView_AccelY_label"
         app:layout_constraintTop_toBottomOf="@+id/textView_AccelX_value" />
 
@@ -74,7 +72,6 @@
         android:layout_height="16dp"
         android:layout_marginStart="148dp"
         android:layout_marginTop="60dp"
-        android:text="@string/placeholder"
         app:layout_constraintStart_toEndOf="@+id/textView_AccelZ_label"
         app:layout_constraintTop_toBottomOf="@+id/textView_AccelY_value"
         tools:ignore="TextSizeCheck" />

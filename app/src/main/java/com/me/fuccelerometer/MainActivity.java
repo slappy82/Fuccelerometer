@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 import com.me.fuccelerometer.databinding.ActivityMainBinding;
 
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -59,10 +60,14 @@ public class MainActivity extends AppCompatActivity {
             switch (event.sensor.getType()) {
                 case Sensor.TYPE_GYROSCOPE: {
                     gyroViewModel.SetAll(event.values[0], event.values[1], event.values[2]);
+                    // DEBUG        //
+                    Log.d("GYRO", "New Gyro values: (X Y Z): " + event.values[0] + " " + event.values[1] + " " + event.values[2]);
+                    //              //
                     break;
                 }
                 case Sensor.TYPE_ACCELEROMETER: {
                     accelViewModel.FilterGravity(event.values[0], event.values[1],event.values[2]);
+                    Log.d("ACCEL", "New Accel values: (X Y Z): " + event.values[0] + " " + event.values[1] + " " + event.values[2]);
                     break;
                 }
                 default:
