@@ -3,19 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/SplashScreenFragment">
+    app:startDestination="@id/LandingScreenFragment">
 
     <fragment
-        android:id="@+id/SplashScreenFragment"
-        android:name="com.me.fuccelerometer.SplashScreenFragment"
-        android:label="@string/splashscreen_fragment_label"
-        tools:layout="@layout/fragment_splashscreen">
+        android:id="@+id/LandingScreenFragment"
+        android:name="com.me.fuccelerometer.LandingScreenFragment"
+        android:label="@string/landingscreen_fragment_label"
+        tools:layout="@layout/fragment_landingscreen">
 
         <action
-            android:id="@+id/action_SplashScreenFragment_to_AccelerometerFragment"
+            android:id="@+id/action_LandingScreenFragment_to_AccelerometerFragment"
             app:destination="@id/AccelerometerFragment" />
         <action
-            android:id="@+id/action_SplashScreenFragment_to_GyroscopeFragment"
+            android:id="@+id/action_LandingScreenFragment_to_GyroscopeFragment"
             app:destination="@id/GyroscopeFragment" />
     </fragment>
     <fragment

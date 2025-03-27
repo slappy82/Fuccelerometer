@@ -2,7 +2,7 @@
     <string name="app_name">Fuccelerometer</string>
     <string name="action_settings">Settings</string>
     <!-- Strings used for fragments for navigation -->
-    <string name="splashscreen_fragment_label">Initial Fragment</string>
+    <string name="landingscreen_fragment_label">Initial Fragment</string>
     <string name="accelerometer_fragment_label">Accelerometer</string>
     <string name="gyroscope_fragment_label">Gyroscope</string>
     <string name="nav_to_gyroscope">Gyroscope</string>

@@ -9,11 +9,11 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
-import com.me.fuccelerometer.databinding.FragmentSplashscreenBinding;
+import com.me.fuccelerometer.databinding.FragmentLandingscreenBinding;
 
-public class SplashScreenFragment extends Fragment {
+public class LandingScreenFragment extends Fragment {
 
-    private FragmentSplashscreenBinding binding;
+    private FragmentLandingscreenBinding binding;
 
     @Override
     public View onCreateView(
@@ -21,7 +21,7 @@ public class SplashScreenFragment extends Fragment {
             Bundle savedInstanceState
     ) {
 
-        binding = FragmentSplashscreenBinding.inflate(inflater, container, false);
+        binding = FragmentLandingscreenBinding.inflate(inflater, container, false);
         return binding.getRoot();
 
     }
@@ -29,14 +29,14 @@ public class SplashScreenFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        binding.buttonSplashToAccel.setOnClickListener(v ->
-                NavHostFragment.findNavController(SplashScreenFragment.this)
-                        .navigate(R.id.action_SplashScreenFragment_to_AccelerometerFragment)
+        binding.buttonLandingToAccel.setOnClickListener(v ->
+                NavHostFragment.findNavController(LandingScreenFragment.this)
+                        .navigate(R.id.action_LandingScreenFragment_to_AccelerometerFragment)
         );
 
-        binding.buttonSplashToGyro.setOnClickListener( v ->
-                NavHostFragment.findNavController( SplashScreenFragment.this)
-                        .navigate(R.id.action_SplashScreenFragment_to_GyroscopeFragment)
+        binding.buttonLandingToGyro.setOnClickListener( v ->
+                NavHostFragment.findNavController( LandingScreenFragment.this)
+                        .navigate(R.id.action_LandingScreenFragment_to_GyroscopeFragment)
         );
     }
 
